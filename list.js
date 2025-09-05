@@ -12,14 +12,13 @@ class linkedList {
         this.length = 0;
     }
     
-    
+    let current = this.head;
     // the data is pretty much the value we pass
     append(data) {
         const node_ = new node(data);
         if(this.head == null) {
             this.head = node_;
         } else {
-            let current = this.head;
             // 
             while(current.next) {
                 current = current.next;
