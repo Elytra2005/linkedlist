@@ -1,10 +1,9 @@
 class node {
     constructor(data) {
         this.data = data;
-        this.next = null; // will have a inner node
+        this.next = null; // pointer
     }
 }
-
 
 class linkedList {
     constructor() {
@@ -12,15 +11,14 @@ class linkedList {
         this.length = 0;
     }
     
-    let current = this.head;
-    // the data is pretty much the value we pass
-    append(data) {
-        const node_ = new node(data);
+    append(number) {
+        const node_ = new node(number);
+        
         if(this.head == null) {
             this.head = node_;
         } else {
-            // 
-            while(current.next) {
+            let current = this.head;
+            while(current.next != null) {
                 current = current.next;
             }
             current.next = node_;
@@ -30,24 +28,29 @@ class linkedList {
     }
     
     
-    printList() {
+    remove() {
         
     }
     
-    removeNode() {
-        
+    print() {
+        let output = '';
+        let current = this.head;
+        while(current != null) {
+            output = output + current.data + "-->";
+            current = current.next;
+        }
+        output += "null";
+        console.log(output);
     }
     
-    addNode() {
-        
-    }
 }
 
-
 let list = new linkedList();
-
-list.append(5);
 list.append(10);
-list.append(20);
+list.append(5);
+list.append(7);
+list.append(1);
+list.append(19);
+list.print();
 
 console.log(list);
